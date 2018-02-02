@@ -9,12 +9,6 @@
         </h2>
         <form class="ui large form error" action="{{ path_for('register') }}" method="POST">
             <div class="ui stacked segment">
-                <div class="field{% if has_error('username') %} error{% endif %}">
-                    <div class="ui left icon input">
-                        <i class="user icon"></i>
-                        <input type="text" name="username" placeholder="Username" value="{{ val('username') }}">
-                    </div>
-                </div>
                 <div class="field{% if has_error('email') %} error{% endif %}">
                     <div class="ui left icon input">
                         <i class="mail icon"></i>
@@ -31,6 +25,24 @@
                     <div class="ui left icon input">
                         <i class="lock icon"></i>
                         <input type="password" name="password_confirm" placeholder="Confirm password">
+                    </div>
+                </div>
+                <div class="field{% if has_error('siret') %} error{% endif %}">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input type="text" name="siret" placeholder="Siret" value="{{ val('siret') }}">
+                    </div>
+                </div>
+                <div class="field{% if has_error('siege_social') %} error{% endif %}">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input type="text" name="siege_social" placeholder="Siege social" value="{{ val('siege_social') }}">
+                    </div>
+                </div>
+                <div class="field{% if has_error('chiffre_affaire') %} error{% endif %}">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input type="text" name="chiffre_affaire" placeholder="Chiffre d'affaire" value="{{ val('chiffre_affaire') }}">
                     </div>
                 </div>
                 {{ csrf() }}

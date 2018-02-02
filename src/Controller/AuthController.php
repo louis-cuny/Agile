@@ -14,7 +14,7 @@ class AuthController extends Controller
     {
         if ($request->isPost()) {
             $credentials = [
-                'username' => $request->getParam('username'),
+                'email' => $request->getParam('email'),
                 'password' => $request->getParam('password')
             ];
             $remember = $request->getParam('remember') ? true : false;
@@ -25,7 +25,7 @@ class AuthController extends Controller
 
                     return $this->redirect($response, 'home');
                 } else {
-                    $this->validator->addError('auth', 'Bad username or password');
+                    $this->validator->addError('auth', 'Bad email or password');
                 }
             } catch (ThrottlingException $e) {
                 $this->validator->addError('auth', 'Too many attempts!');
@@ -38,12 +38,10 @@ class AuthController extends Controller
     public function register(Request $request, Response $response)
     {
         if ($request->isPost()) {
-            $username = $request->getParam('username');
             $email = $request->getParam('email');
             $password = $request->getParam('password');
 
             $this->validator->request($request, [
-                'username' => V::length(3, 25)->alnum('_')->noWhitespace(),
                 'email' => V::noWhitespace()->email(),
                 'password' => [
                     'rules' => V::noWhitespace()->length(6, 25),
@@ -59,8 +57,8 @@ class AuthController extends Controller
                 ]
             ]);
 
-            if ($this->auth->findByCredentials(['login' => $username])) {
-                $this->validator->addError('username', 'This username is already used.');
+            if ($this->auth->findByCredentials(['login' => $email])) {
+                $this->validator->addError('email', 'This email is already used.');
             }
 
             if ($this->auth->findByCredentials(['login' => $email])) {
@@ -71,7 +69,6 @@ class AuthController extends Controller
                 $role = $this->auth->findRoleByName('User');
 
                 $user = $this->auth->registerAndActivate([
-                    'username' => $username,
                     'email' => $email,
                     'password' => $password,
                     'permissions' => [
