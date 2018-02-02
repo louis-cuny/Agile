@@ -19,4 +19,10 @@ class User extends EloquentUser
     ];
 
     protected $loginNames = ['email'];
+
+
+    public function appeloffres()
+    {
+        return $this->hasMany('App/Model/AppelOffre');
+    }
 }

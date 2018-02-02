@@ -9,7 +9,8 @@ $tables = [
     'role_users',
     'throttle',
     'roles',
-    'user'
+    'user',
+    'appeloffre'
 ];
 
 Manager::schema()->disableForeignKeyConstraints();
