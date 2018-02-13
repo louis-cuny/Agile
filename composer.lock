@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "62db97d5f080b2b80d64db8c2a28db27",
+    "content-hash": "cb9a89b368de79792457c50500c3c3dd",
     "packages": [
         {
             "name": "awurth/slim-helpers",

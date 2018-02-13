@@ -15,7 +15,7 @@ class AppelOffre extends EloquentUser
         'commanditaire',
         'adresse',
         'ville',
-        'mail',
+        'email',
         'tel',
         'mission',
         'budget',
@@ -23,6 +23,7 @@ class AppelOffre extends EloquentUser
         'docreponse',
         'autre'
     ];
+
     public function user()
     {
         return $this->belongsTo('App/Model/User');

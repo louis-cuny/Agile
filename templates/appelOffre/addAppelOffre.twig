@@ -1,0 +1,68 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+<form class="ui large form error" action="{{ path_for('confirmAppelOffre') }}" method="POST">
+<div class="ui stacked segment">
+    <div class="field">
+        <div class="ui left icon input">
+            <input type="text" name="intitule" placeholder="Intitule" value="{{ val('intitule') }}">
+        </div>
+    </div>
+    <div class="field">
+        <div class="ui left icon input">
+            <input type="text" name="commanditaire" placeholder="Commanditaire">
+        </div>
+    </div>
+    <div class="field">
+        <div class="ui left icon input">
+            <input type="text" name="adresse" placeholder="Adresse">
+        </div>
+    </div>
+    <div class="field">
+        <div class="ui left icon input">
+            <input type="text" name="ville" placeholder="Ville">
+        </div>
+    </div>
+    <div class="field">
+        <div class="ui left icon input">
+            <input type="email" name="mail" placeholder="Mail">
+        </div>
+    </div>
+    <div class="field">
+        <div class="ui left icon input">
+            <input type="text" name="tel" placeholder="Telephone">
+        </div>
+    </div>
+    <div class="field">
+        <div class="ui left icon input">
+            <input type="text" name="mission" placeholder="Mission">
+        </div>
+    </div>
+    <div class="field">
+        <div class="ui left icon input">
+            <input type="text" name="budget" placeholder="Budget">
+        </div>
+    </div>
+    <div class="field">
+        <div class="ui left icon input">
+            <input type="date" name="datelimitecandidature" placeholder="Date limite de candidature">
+        </div>
+    </div>
+
+    {{ csrf() }}
+    <input type="submit" class="ui fluid large teal button" value="Mettre en ligne">
+</div>
+{% if has_errors() %}
+    <div class="ui error message">
+        {% for paramErrors in errors() %}
+            {% for error in paramErrors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endif %}
+
+</form>
+
+{% endblock %}
