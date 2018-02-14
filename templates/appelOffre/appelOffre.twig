@@ -1,0 +1,26 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  <a href="addAppelOffre" class="ui fluid large teal button" >Ajouter Appel d'offre</a>
+
+<div>
+
+    <div>
+
+      <h1>{{offre.intitule}}</h1>
+      <h3>{{offre.commanditaire}}</h3>
+      <h3>{{offre.datelimitecandidature}}</h3>
+      <h3>{{offre.adresse}}</h3>
+      <h3>{{offre.ville}}</h3>
+      <h3>{{offre.email}}</h3>
+      <h3>{{offre.tel}}</h3>
+      <h3>{{offre.mission}}</h3>
+      <h3>{{offre.budget}}</h3>
+
+      <a href="" class="ui fluid large teal button" >S'inscrire à l'appel d'offre</a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -15,3 +15,4 @@ $app->get('/logout', 'auth.controller:logout')
 $app->post('/confirmAppelOffre', 'appel.controller:confirmAppelOffre')->setName('confirmAppelOffre');
 $app->get('/addAppelOffre', 'appel.controller:addAppelOffre')->setName('addAppelOffre');
 $app->get('/listAppeloffre', 'appel.controller:showListAppelOffre')->setName('showListAppelOffre');
+$app->get('/appelOffre/{id}', 'appel.controller:showAppelOffre')->setName('showAppelOffre');

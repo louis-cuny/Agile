@@ -17,25 +17,30 @@ class AppelOffreController extends Controller
   }
 
   public function confirmAppelOffre(Request $request, Response $response) {
-    // $offre = new AppelOffre;
-		// $offre->intitule = $request->getParam('intitule');
-		// $offre->commanditaire = $request->getParam('commanditaire');
-    // $offre->adresse = $request->getParam('adresse');
-    // $offre->ville = $request->getParam('ville');
-    // $offre->email = $request->getParam('mail');
-    // $offre->tel = $request->getParam('tel');
-    // $offre->mission = $request->getParam('mission');
-    // $offre->budget = $request->getParam('budget');
-    // $offre->datelimitecandidature = $request->getParam('datelimitecandidature');
-		// $offre->save();
+    $offre = new AppelOffre;
+		$offre->intitule = $request->getParam('intitule');
+		$offre->commanditaire = $request->getParam('commanditaire');
+    $offre->adresse = $request->getParam('adresse');
+    $offre->ville = $request->getParam('ville');
+    $offre->email = $request->getParam('mail');
+    $offre->tel = $request->getParam('tel');
+    $offre->mission = $request->getParam('mission');
+    $offre->budget = $request->getParam('budget');
+    $offre->datelimitecandidature = $request->getParam('datelimitecandidature');
+    $offre->user_id =$this->auth->getUser()->id;
+		$offre->save();
 
-    //Il reste a mettre le user_id
-    var_dump($user = Sentinel::check());
     }
 
     public function showListAppelOffre(Request $request, Response $response){
       $list = AppelOffre::all();
       return $this->twig->render($response, 'appelOffre/index.twig', array('list'=>$list));
+    }
+
+    public function showAppelOffre(Request $request, Response $response, $args){
+      $list = AppelOffre::all();
+      $offre = $list->find($args);
+      return $this->twig->render($response, 'appelOffre/appelOffre.twig', array('offre'=> $offre));
     }
 
 }

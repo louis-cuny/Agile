@@ -1,11 +1,22 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
+  <a href='addAppelOffre' class="ui fluid large teal button" >Ajouter Appel d'offre</a>
 
 <div>
+
 {% for appelOffre in list %}
-    <p>{{appelOffre.intitule}}</p>
+    <div>
+
+      <h1>{{appelOffre.intitule}}</h1>
+      <h3>{{appelOffre.commanditaire}}</h3>
+      <h3>{{appelOffre.datelimitecandidature}}</h3>
+
+      <a href="{{ path_for('showAppelOffre', { 'id': appelOffre.id  }) }}" class="ui fluid large teal button" >Voir offre</a>
+
+    </div>
 {% endfor %}
+
 </div>
 
 {% endblock %}
