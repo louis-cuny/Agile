@@ -3,5 +3,6 @@
 return [
     'app.controller'   => 'App\Controller\AppController',
     'auth.controller'  => 'App\Controller\AuthController',
-    'appel.controller'  => 'App\Controller\AppelOffreController'
+    'appel.controller'  => 'App\Controller\AppelOffreController',
+    'user.controller'  => 'App\Controller\UserController'
 ];

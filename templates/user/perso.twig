@@ -1,0 +1,28 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+<div>
+
+    <div>
+    <h1>{{res.user.email}}</h1>
+    <h1>{{res.user.last_name}}</h1>
+    <h1>{{res.user.first_name}}</h1>
+
+    </div>
+
+
+<h1>Vos offres</h1>
+{% for appelOffre in res.offres %}
+
+    <div>
+        <h2>{{appelOffre.intitule}}</h2>
+        <h3>{{appelOffre.datelimitecandidature}}</h3>
+        <a href="{{ path_for('showAppelOffre', { 'id': appelOffre.id  }) }}" class="ui fluid large teal button" >Voir offre</a>
+    </div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

@@ -16,3 +16,5 @@ $app->post('/confirmAppelOffre', 'appel.controller:confirmAppelOffre')->setName(
 $app->get('/addAppelOffre', 'appel.controller:addAppelOffre')->setName('addAppelOffre');
 $app->get('/listAppeloffre', 'appel.controller:showListAppelOffre')->setName('showListAppelOffre');
 $app->get('/appelOffre/{id}', 'appel.controller:showAppelOffre')->setName('showAppelOffre');
+
+$app->get('/user/{id}', 'user.controller:showUser')->setName('user');

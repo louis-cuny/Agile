@@ -17,7 +17,10 @@
       <h3>{{offre.mission}}</h3>
       <h3>{{offre.budget}}</h3>
 
-      <a href="" class="ui fluid large teal button" >S'inscrire à l'appel d'offre</a>
+      {% if auth.check().id == offre.user_id %}
+      {% else %}
+        <a href="" class="ui fluid large teal button" >S'inscrire à l'appel d'offre</a>
+      {% endif %}
 
     </div>
 

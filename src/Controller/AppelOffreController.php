@@ -30,6 +30,7 @@ class AppelOffreController extends Controller
     $offre->user_id =$this->auth->getUser()->id;
 		$offre->save();
 
+    return $this->twig->render($response, 'appelOffre/appelOffre.twig', array('offre'=>$offre));
     }
 
     public function showListAppelOffre(Request $request, Response $response){
