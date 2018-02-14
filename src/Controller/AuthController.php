@@ -40,6 +40,9 @@ class AuthController extends Controller
         if ($request->isPost()) {
             $email = $request->getParam('email');
             $password = $request->getParam('password');
+            $siret = $request->getParam('siret');
+            $siege_social = $request->getParam('siege_social');
+            $chiffre_affaire = $request->getParam('chiffre_affaire');
 
             $this->validator->request($request, [
                 'email' => V::noWhitespace()->email(),
@@ -53,6 +56,24 @@ class AuthController extends Controller
                     'rules' => V::equals($password),
                     'messages' => [
                         'equals' => 'Passwords don\'t match'
+                    ]
+                ],
+                'siret' => [
+                    'rules' => V::numeric(),
+                    'messages' => [
+                        'equals' => 'Siret not numeric'
+                    ]
+                ],
+                'siege_social' => [
+                    'rules' => V::alpha(),
+                    'messages' => [
+                        'equals' => 'Siege social is an adress'
+                    ]
+                ],
+                'chiffre_affaire' => [
+                    'rules' => V::numeric(),
+                    'messages' => [
+                        'equals' => 'Chiffre d\'affaire not numeric'
                     ]
                 ]
             ]);
@@ -71,6 +92,9 @@ class AuthController extends Controller
                 $user = $this->auth->registerAndActivate([
                     'email' => $email,
                     'password' => $password,
+                    'siret' => $siret,
+                    'siege_social' => $siege_social,
+                    'chiffre_affaire' => $chiffre_affaire,
                     'permissions' => [
                         'user.delete' => 0
                     ]

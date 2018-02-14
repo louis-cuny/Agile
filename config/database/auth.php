@@ -15,7 +15,7 @@ Manager::schema()->create('user', function (Blueprint $table) {
     $table->string('first_name')->nullable();
     $table->string('siret')->nullable();
     $table->string('siege_social')->nullable();
-    $table->string('chiffe_affaire')->nullable();
+    $table->string('chiffre_affaire')->nullable();
     $table->text('permissions');
     $table->timestamp('last_login');
     $table->timestamps();
