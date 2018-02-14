@@ -1,8 +1,6 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
-  <a href="addAppelOffre" class="ui fluid large teal button" >Ajouter Appel d'offre</a>
-
 <div>
 
     <div>
@@ -19,7 +17,7 @@
 
       {% if auth.check().id == offre.user_id %}
       {% else %}
-        <a href="" class="ui fluid large teal button" >S'inscrire à l'appel d'offre</a>
+        <a href="{{ path_for('inscriptionOffre') }}" class="ui fluid large teal button" >S'inscrire à l'appel d'offre</a>
       {% endif %}
 
     </div>

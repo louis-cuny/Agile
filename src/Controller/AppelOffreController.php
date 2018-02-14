@@ -44,4 +44,11 @@ class AppelOffreController extends Controller
       return $this->twig->render($response, 'appelOffre/appelOffre.twig', array('offre'=> $offre));
     }
 
+    public function inscriptionAppelOffre(Request $request, Response $response){
+      echo "<script type='text/javascript'>alert('Vous avez été inscrit');</script>";
+      $list = AppelOffre::all();
+      return $this->twig->render($response, 'appelOffre/index.twig', array('list'=>$list));
+
+    }
+
 }
