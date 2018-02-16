@@ -1,19 +1,29 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
-<div>
+<div class="">
 
-    <div>
+    <div class="offre">
 
-      <h1>{{offre.intitule}}</h1>
-      <h3>{{offre.commanditaire}}</h3>
-      <h3>{{offre.datelimitecandidature}}</h3>
-      <h3>{{offre.adresse}}</h3>
-      <h3>{{offre.ville}}</h3>
-      <h3>{{offre.email}}</h3>
-      <h3>{{offre.tel}}</h3>
+      <div class="appelOffre2">
+      <h1>Offre </br>{{offre.intitule}}</h1>
+      <h3>Commanditaire : {{offre.commanditaire}}</h3>
+      <h3>Date limite de candidature : {{offre.datelimitecandidature}}</h3>
+      <h3>Adresse : {{offre.adresse}}</h3>
+      <h3>Ville :{{offre.ville}}</h3>
+      </div>
+
+      <div class="appelOffre2">
+      <h1>Contact</h1>
+      <h3>E-mail : {{offre.email}}</h3>
+      <h3>Telephone : {{offre.tel}}</h3>
+      </div>
+
+      <div class="appelOffre2">
+      <h1>Missions</h1>
       <h3>{{offre.mission}}</h3>
-      <h3>{{offre.budget}}</h3>
+      <h3>Budget : </br></br> {{offre.budget}} €</h3>
+      </div>
 
       {% if auth.check().id == offre.user_id %}
       {% else %}
